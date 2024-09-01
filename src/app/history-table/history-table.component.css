@@ -1,0 +1,38 @@
+th {
+    background-color: aqua;
+}
+
+.header-container {
+    position: relative;
+    width: 100%;
+  }
+
+  .header {
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white;
+    padding: 10px 15px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  table {
+    width: 100%;
+  }
+
+  th.mat-header-cell {
+    font-size: 1.1rem;
+    text-align: center;
+    background-color: #17a2b8 !important; /* Material header with Bootstrap color */
+    color: white;
+  }
+
+  td.mat-cell {
+    text-align: center;
+  }

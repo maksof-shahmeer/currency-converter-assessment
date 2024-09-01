@@ -1,0 +1,57 @@
+<mat-card class="converter-card mx-auto my-4 p-3" style="max-width: 600px;">
+  <mat-card-header>
+    <mat-card-title>
+      <h4 class="text-center h4">Currency Converter</h4>
+    </mat-card-title>
+  </mat-card-header>
+  
+  <mat-card-content>
+    <form (ngSubmit)="convertCurrency()">
+      <div class="row">
+        <div class="col-12 col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>From</mat-label>
+            <mat-select matInput [(ngModel)]="fromCurrency" name="fromCurrency">
+              <mat-option *ngFor="let currency of currencies" [value]="currency">
+                {{ currency }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        
+        <div class="col-12 col-md-6 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>To</mat-label>
+            <mat-select matInput [(ngModel)]="toCurrency" name="toCurrency">
+              <mat-option *ngFor="let currency of currencies" [value]="currency">
+                {{ currency }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12 mb-3">
+          <mat-form-field appearance="fill" class="w-100">
+            <mat-label>Amount</mat-label>
+            <input matInput type="number" [(ngModel)]="amount" name="amount" />
+          </mat-form-field>
+        </div>
+      </div>
+
+      <div class="d-flex justify-content-center mt-4">
+        <button mat-raised-button class="btn btn-primary d-flex gap-2" type="submit" [disabled]="loading">
+          <mat-spinner *ngIf="loading" diameter="20"></mat-spinner>
+          {{ loading ? 'Converting...' : 'Convert' }}
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+
+  <mat-card-footer class="text-center mt-4">
+    <div *ngIf="!loading && conversionResult" class="result h5">
+      <strong>Result:</strong> {{ conversionResult | number:'1.2-2' }} {{ convertedCurrency }}
+    </div>
+  </mat-card-footer>
+</mat-card>

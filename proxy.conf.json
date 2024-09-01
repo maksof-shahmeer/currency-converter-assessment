@@ -1,0 +1,11 @@
+{
+    "/api/**": {
+        "target": "https://72bf-205-164-137-194.ngrok-free.app/api",
+        "secure": true,
+        "changeOrigin": true,
+        "logLevel": "debug",
+        "pathRewrite": {
+           "^/api": ""
+        }
+    }
+}
