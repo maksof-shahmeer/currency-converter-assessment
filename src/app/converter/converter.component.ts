@@ -63,10 +63,8 @@ export class ConverterComponent {
   dataSource = ELEMENT_DATA;
   data: any = [];
 
-  private apiUrl = 'https://royal-event-main-node.vercel.app/api/currencies';
 
   ngOnInit() {
-    Cookies.set('abuse_interstitial', '72bf-205-164-137-194.ngrok-free.app');
     this.getCurrencies();
     this.loadConversionHistory();
   }
@@ -76,7 +74,6 @@ export class ConverterComponent {
   constructor(private currencyService: CurrencyService) {}
   getCurrencies() {
     this.currencyService.route.fetch().subscribe((currencies: any) => {
-      console.log(currencies);
       this.data = currencies
       this.currencies = Object.keys(this.data.data);
     });
